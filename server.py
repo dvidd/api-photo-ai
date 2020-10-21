@@ -10,7 +10,7 @@ CLASSES = ["background", "aeroplane", "bicycle", "bird", "boat",
   "sofa", "train", "tvmonitor"]
 
 COLORS = np.random.uniform(0, 255, size=(len(CLASSES), 3))
-net = cv2.dnn.readNetFromCaffe("MobileNetSSD_deploy.prototxt.txt", "MobileNetSSD_deploy.caffemodel")
+net = cv2.dnn.readNetFromCaffe("models/MobileNetSSD_deploy.prototxt.txt", "models/MobileNetSSD_deploy.caffemodel")
 
 
 app = Flask(__name__)
@@ -22,7 +22,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def hello_world():
-  return 'Neuman platfrom running'
+  return 'Server running'
 
 @app.route('/detection', methods=['GET', 'POST'])
 def process_image():
