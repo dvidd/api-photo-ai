@@ -1,3 +1,5 @@
+# test the aplication on localhost
+
 import urllib.request
 import json
 
