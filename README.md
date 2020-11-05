@@ -1,6 +1,5 @@
-# img-server
-Server for object recognition for images via post request 
-
+# api-photo-ai
+Api for object recognition for images via post request
 ### How it works :
 
 To run the server first install the requierements.txt, then run 
