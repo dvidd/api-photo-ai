@@ -2,12 +2,6 @@ from flask import Flask, request
 import numpy as np
 import cv2
 import requests
-import os
-
-CLASSES = ["background", "aeroplane", "bicycle", "bird", "boat",
-  "bottle", "bus", "car", "cat", "chair", "cow", "diningtable",
-  "dog", "horse", "motorbike", "person", "pottedplant", "sheep",
-  "sofa", "train", "tvmonitor"]
 
 COLORS = np.random.uniform(0, 255, size=(len(CLASSES), 3))
 net = cv2.dnn.readNetFromCaffe("models/MobileNetSSD_deploy.prototxt.txt", "models/MobileNetSSD_deploy.caffemodel")
@@ -15,16 +9,11 @@ net = cv2.dnn.readNetFromCaffe("models/MobileNetSSD_deploy.prototxt.txt", "model
 
 app = Flask(__name__)
 
-
-
-
-
-
 @app.route('/')
 def hello_world():
-  return 'Server running'
+    return render_template("index.html")
 
-@app.route('/detection', methods=['GET', 'POST'])
+@app.route('/api', methods=['GET', 'POST'])
 def process_image():
   if request.json:
     data = request.json
@@ -66,15 +55,9 @@ def process_image():
         (startX, startY, endX, endY) = box.astype("int")
 
         # display the prediction
-        label = "{}: {:.2f}%".format(CLASSES[idx], confidence * 100)
         print("[INFO] {}".format(label))
 
-        if CLASSES[idx] == 'person':
-          return str('{"response": "person likely found"}')
-        else:
-          return str(label)
-      else:
-        return str('{"response": "no people found"}')
+        return str(label)
   else:
     return "no json received"
 

@@ -1,6 +1,6 @@
 # api-photo-ai
-Api for object recognition for images via post request
-### How it works :
+Api for object recognition for images via post request, send a url img and it would return an array with the objects detected and the probability
+### How make it  work local :
 
 To run the server first install the requierements.txt, then run 
 `````python
