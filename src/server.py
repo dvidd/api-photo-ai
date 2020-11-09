@@ -3,6 +3,8 @@ import numpy as np
 import cv2
 import requests
 
+models = []
+
 net = cv2.dnn.readNetFromCaffe("../models/MobileNetSSD_deploy.prototxt.txt", "../models/MobileNetSSD_deploy.caffemodel")
 
 
@@ -11,6 +13,30 @@ app = Flask(__name__)
 @app.route('/')
 def index():
     return render_template("index.html")
+
+@app.route('/test', methods=['GET','POST'])
+def test():
+    url = request.args.get('url')
+    model = request.args.get('model',  default = 'MobileNetSSD')
+
+    # Get the image to be local
+    r = request.get(url, timeout=60)
+    # Save it to the disk
+    temp_file = 'tmp/temp.jpg'
+    f = open(temp_file, "wb")
+    f.write(r.content)
+    f.close()
+
+    image = cv2.imread(temp_file.jpg)
+
+    (h, w) = image.shape[:2]
+    blob = cv2.dnn.blobFromImage(cv2.resize(image, (300,300)), 0.007843, (300, 300), 127.5 )
+
+    net.setInput(blob)
+    detections = net.forward()
+
+    return detections
+
 
 @app.route('/api', methods=['GET', 'POST'])
 def process_image():
