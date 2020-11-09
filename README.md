@@ -1,5 +1,21 @@
-# api-photo-ai
-Api for object recognition for images via post request, send a url img and it would return an array with the objects detected and the probability
+# Capi-photo-ai
+Api for object recognition via POST or GET request of an image url, can be set with different models. It's call CAPi because there is no cap thet is the best
+
+## How to used to api
+````shell
+curl  "https://phtoai.com/api?{[URL]}"
+````
+It would return a json array with the objects detected and the probability of them
+### Set other model 
+```shell
+curl "https://phtoai.com/api?={[URL]}?model=MobileNetSSD"
+```
+If you don't specify the model it would use by default MobileNetSSD
+
+### Supported models
+| Model | Description |
+| --- | --- |
+    | `MobileNetSSD` | The mobilenet-ssd model is a Single-Shot multibox Detection (SSD) network intended to perform object detection. This model is implemented using the Caffe* framework. For details about this model, check out the<a href="https://github.com/chuanqi305/MobileNet-SSD"> repository.</a> |
 ### How make it  work local :
 
 To run the server first install the requierements.txt, then run 
