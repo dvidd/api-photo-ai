@@ -8,7 +8,7 @@ curl  "https://capi-photo.com/api?{[URL]}"
 It would return a json array with the objects detected and the probability of them
 ### Set other model 
 ```shell
-curl "https://phtoai.com/api?={[URL]}?model=MobileNetSSD"
+curl "https://capi-photo.com/api?={[URL]}?model=MobileNetSSD"
 ```
 If you don't specify the model it would use by default MobileNetSSD
 
