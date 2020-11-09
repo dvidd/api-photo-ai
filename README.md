@@ -29,3 +29,11 @@ You have to sent a post request to the server [ http://localhost:5000/detection 
 $ python3 post
 
 ``````
+
+## TODO :
+
+- implement get request
+- make the json response to be quicker
+- do support to others models
+- add to a server so the people can use it 
+- make tests files and stuff for good code
