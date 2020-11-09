@@ -1,5 +1,5 @@
 # Capi-photo-ai
-Api for object recognition via POST or GET request of an image url, can be set with different models. It's call CAPi because there is no cap thet is the best
+Api for object recognition via POST or GET request of an image url, can be set with different models. It's call CAPi because there is no cap  is the best
 
 ## How to used to api
 ````shell
