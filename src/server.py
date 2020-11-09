@@ -1,16 +1,15 @@
-from flask import Flask, request
+from flask import Flask, request , render_template
 import numpy as np
 import cv2
 import requests
 
-COLORS = np.random.uniform(0, 255, size=(len(CLASSES), 3))
-net = cv2.dnn.readNetFromCaffe("models/MobileNetSSD_deploy.prototxt.txt", "models/MobileNetSSD_deploy.caffemodel")
+net = cv2.dnn.readNetFromCaffe("../models/MobileNetSSD_deploy.prototxt.txt", "../models/MobileNetSSD_deploy.caffemodel")
 
 
 app = Flask(__name__)
 
 @app.route('/')
-def hello_world():
+def index():
     return render_template("index.html")
 
 @app.route('/api', methods=['GET', 'POST'])
@@ -55,6 +54,7 @@ def process_image():
         (startX, startY, endX, endY) = box.astype("int")
 
         # display the prediction
+        label = "{}: {:.2f}%".format(CLASSES[idx], confidence * 100)
         print("[INFO] {}".format(label))
 
         return str(label)
