@@ -23,7 +23,7 @@ PORT = "8888"
 def hello_world():
   return 'Server running'
 
-@app.route('/detection', methods=['GET', 'POST'])
+@app.route('/api', methods=['GET', 'POST'])
 def process_image():
   if request.json:
     data = request.json
