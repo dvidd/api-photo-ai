@@ -1,5 +1,5 @@
 # api-photo-ai
-Api for object recognition via POST or GET request of an image url, can be set with different models.
+Api for object recognition via POST or GET request of an image url, using the model MobileNetSSD
 
 ## How to used to api
 ````shell
