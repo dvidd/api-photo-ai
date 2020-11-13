@@ -1,16 +1,13 @@
-# Capi-photo-ai
-Api for object recognition via POST or GET request of an image url, can be set with different models. It's call CAPi because there is no cap  is the best
+# api-photo-ai
+Api for object recognition via POST or GET request of an image url, can be set with different models.
 
 ## How to used to api
 ````shell
-curl  "https://capi-photo.com/api?{[URL]}"
+curl  "https://localhost:5000/api?{[URL]}"
 ````
 It would return a json array with the objects detected and the probability of them
-### Set other model 
-```shell
-curl "https://capi-photo.com/api?={[URL]}?model=MobileNetSSD"
-```
-If you don't specify the model it would use by default MobileNetSSD
+
+If you don't specify the model or change the model it would use by default MobileNetSSD
 
 ### Supported models
 | Model | Description |
