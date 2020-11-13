@@ -1,5 +1,14 @@
 # api-photo-ai
 Api for object recognition via POST or GET request of an image url, using the model MobileNetSSD
+## Example 
+````` shell
+input :
+`````
+<img src="https://imagenes.20minutos.es/files/image_656_370/uploads/imagenes/2020/01/29/meme-de-una-mujer-gritando-me-dijiste-que-a-un-gato.jpeg">
+
+`````shell
+Output : ['bottle: 61.01%', 'cat: 69.77%', 'person: 92.28%']
+`````
 
 ## How to used to api
 ````shell
